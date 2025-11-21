@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TriStrike — Precision. Play. Win.</title>
+  <meta name="description" content="TriStrike — Tic-Tac-Toe game with unbeatable AI and clean UI." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Primary navigation">
+    <div class="brand">
+      <div class="logo">TS</div>
+      <div class="title">TriStrike</div>
+      <div class="brand-sub">Precision. Strategy. Fast fun.</div>
+    </div>
+
+    <div class="nav-wrap">
+      <ul class="nav-list" id="navList">
+        <li class="nav-item"><a href="#home" data-target="home">Home</a></li>
+        <li class="nav-item"><a href="#play" data-target="play">Play</a></li>
+        <li class="nav-item"><a href="#rules" data-target="rules">Rules</a></li>
+        <li class="nav-item"><a href="#scoresPage" data-target="scoresPage">Scores</a></li>
+        <li class="nav-item"><a href="#contact" data-target="contact">Contact</a></li>
+      </ul>
+
+      <a class="nav-cta" href="#play" data-target="play">Play Now</a>
+
+      <!-- Hamburger -->
+      <button class="hamburger" id="hamburger" aria-expanded="false" aria-label="Open menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div id="mobileDrawer" class="mobile-drawer" aria-hidden="true">
+      <a href="#home">Home</a>
+      <a href="#play">Play</a>
+      <a href="#rules">Rules</a>
+      <a href="#scoresPage">Scores</a>
+      <a href="#contact">Contact</a>
+      <hr>
+      <a class="nav-cta" href="#play">Play Now</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section id="home" class="hero" aria-label="Home">
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-inner hero-minimal" role="banner" aria-label="TriStrike">
+    <div class="hero-content">
+      <h1>TriStrike</h1>
+      <div class="hero-sub">Precision. Strategy. Fast fun.</div>
+      <a class="hero-cta" href="#play" data-target="play">Quick Match</a>
+    </div>
+  </div>
+</section>
+
+<!-- PLAY SECTION -->
+<section id="play" class="play-section" aria-label="Play">
+  <div class="play-grid">
+
+    <aside class="panel left" aria-label="Controls">
+      <h2>Game Controls</h2>
+
+      <div class="control-row" role="radiogroup" aria-label="Mode">
+        <label><input type="radio" name="mode" value="pvp" checked> 2 Players</label>
+        <label><input type="radio" name="mode" value="cpu"> vs Computer</label>
+      </div>
+
+      <div class="control-row">
+        <label for="playerMarker">Your marker:</label>
+        <select id="playerMarker" aria-label="Choose your marker">
+          <option value="X">X</option>
+          <option value="O">O</option>
+        </select>
+      </div>
+
+      <div class="control-row" id="cpuStartRow">
+        <label><input type="checkbox" id="cpuStarts"> Computer starts</label>
+      </div>
+
+      <div class="control-row actions">
+        <button id="newRound" class="btn">New Round</button>
+        <button id="resetAll" class="btn ghost">Reset Scores</button>
+      </div>
+
+      <div class="status-block" aria-live="polite">
+        <div class="status">Turn: <span id="turnPlayer">X</span></div>
+        <div class="last" id="lastGame">Last: —</div>
+      </div>
+    </aside>
+
+    <div class="board-wrap" aria-hidden="false">
+      <div id="board" class="board" role="grid" aria-label="TriStrike board"></div>
+
+      <!-- Winner popup -->
+      <div id="winnerModal" class="winner-modal" aria-hidden="true">
+        <div class="winner-modal-content" role="dialog" aria-modal="true" aria-labelledby="winnerMessage">
+          <div id="winnerMessage" class="winner-message">X Won</div>
+          <button id="winnerClose" class="btn">OK</button>
+        </div>
+      </div>
+    </div>
+
+    <aside class="panel right" aria-label="How to play and scores">
+      <h3>How to Play</h3>
+      <ul class="rules">
+        <li>Three in a row wins.</li>
+        <li><kbd>1–9</kbd> to place tiles (numpad layout)</li>
+        <li><kbd>Space</kbd> new round, <kbd>R</kbd> reset scores.</li>
+      </ul>
+
+      <div id="scores" class="scoreboard" aria-label="Scores">
+        <h4>Scores</h4>
+        <div class="scores-grid">
+          <div class="score-card"><div class="label">X</div><div class="value" id="scoreX">0</div></div>
+          <div class="score-card"><div class="label">Draws</div><div class="value" id="scoreD">0</div></div>
+          <div class="score-card"><div class="label">O</div><div class="value" id="scoreO">0</div></div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</section>
+
+<!-- RULES -->
+<section id="rules" class="info-section" aria-label="Rules">
+  <h2>Rules & Tips</h2>
+  <p>The AI uses minimax logic and plays perfectly. Great for practice.</p>
+</section>
+
+<!-- SCORES PAGE -->
+<section id="scoresPage" class="info-section" aria-label="Scoreboard">
+  <h2>Scoreboard</h2>
+  <div class="scores-large">
+    <div class="score-row"><strong>X:</strong> <span id="scoreXLarge">0</span></div>
+    <div class="score-row"><strong>Draws:</strong> <span id="scoreDLarge">0</span></div>
+    <div class="score-row"><strong>O:</strong> <span id="scoreOLarge">0</span></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="info-section" aria-label="Contact">
+  <h2>Contact & Feedback</h2>
+  <address>TriStrike Labs<br> <a href="mailto:hello@tristrike.example">hello@tristrike.example</a></address>
+</section>
+
+</main>
+
+<script src="script.js" defer></script>
+
+<script>
+/* Mobile drawer + smooth scroll (unchanged) */
+(function () {
+  const hamburger = document.getElementById("hamburger");
+  const drawer = document.getElementById("mobileDrawer");
+
+  hamburger?.addEventListener('click', () => {
+    const isOpen = drawer.classList.toggle("open");
+    drawer.setAttribute("aria-hidden", String(!isOpen));
+    hamburger.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  document.querySelectorAll("[data-target]").forEach(a=>{
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute("href") || a.getAttribute("data-target");
+      if (!href || !href.startsWith('#')) return;
+      e.preventDefault();
+      const id = href.replace('#','');
+      const el = document.getElementById(id);
+      if (!el) return;
+      const offset = (document.getElementById('navbar')?.offsetHeight || 72);
+      const top = el.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+      if (drawer.classList.contains('open')) {
+        drawer.classList.remove('open');
+        drawer.setAttribute('aria-hidden','true');
+        hamburger.setAttribute('aria-expanded','false');
+      }
+    });
+  });
+
+  // mirror scores to large scoreboard
+  setInterval(() => {
+    const sx = document.getElementById('scoreX')?.textContent || '0';
+    const so = document.getElementById('scoreO')?.textContent || '0';
+    const sd = document.getElementById('scoreD')?.textContent || '0';
+    document.getElementById('scoreXLarge') && (document.getElementById('scoreXLarge').textContent = sx);
+    document.getElementById('scoreOLarge') && (document.getElementById('scoreOLarge').textContent = so);
+    document.getElementById('scoreDLarge') && (document.getElementById('scoreDLarge').textContent = sd);
+  }, 400);
+})();
+</script>
+
+</body>
+</html>
