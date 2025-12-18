@@ -3,7 +3,7 @@
 TriStrike is a front-end web-based Tic Tac Toe game featuring an intelligent computer opponent, responsive design, smooth UI interactions, and a modern white-orange themed interface. It is built using HTML, CSS, and JavaScript.
 
 ## Live Demo
-https://parthp137.github.io/PRODIGY_WD_03/
+https://parthp137.github.io/TriStrike/
 
 ## Features
 
@@ -73,8 +73,8 @@ Match history log
 
 ###1. Clone the repository:
 
-git clone https://github.com/parthp137/PRODIGY_WD_03.git
-cd PRODIGY_WD_03
+git clone https://github.com/parthp137/TriStrike.git
+cd TriStrike
 
 ###2. Open the project in a browser:
 -Open index.html directly, or
